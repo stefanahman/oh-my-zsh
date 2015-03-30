@@ -16,6 +16,16 @@ function hg_prompt_info {
 patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset_color%})|pre_unapplied(%{$fg_bold[black]%})|post_unapplied(%{$reset_color%})>>" 2>/dev/null
 }
 
+# Determine Ruby version using RVM
+# if its loaded, it'll add the prompt
+function rvm_info {
+  ruby_version=$(~/.rvm/bin/rvm-prompt)
+  if [ -n "$ruby_version" ]; then
+    echo $ruby_version
+  fi
+}
+# the chpwd_functions line cause this to update only when the directory changes
+#chpwd_functions+=(rvm_info)
 
 PROMPT='
 $FG[166]%n%{$reset_color%} \
@@ -23,6 +33,8 @@ at $FG[136]%m%{$reset_color%} \
 in $FG[064]%~%{$reset_color%}\
 $(hg_prompt_info)$(git_prompt_info)
 $(virtualenv_info)$(prompt_char) '
+
+RPROMPT='$FG[000]$(rvm_info)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on $FG[033]"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
