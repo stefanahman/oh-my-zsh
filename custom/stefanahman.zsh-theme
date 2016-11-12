@@ -37,13 +37,13 @@ PROMPT='$FG[001]%n%{$reset_color%} \
 at $FG[003]%m%{$reset_color%} \
 in $FG[002]%~%{$reset_color%}\
 $(hg_prompt_info)$(git_prompt_info)
-$(virtualenv_info)$(prompt_char) '
+$(virtualenv_info)$FG[171]$(prompt_char)%{$reset_color%} '
 
 RPROMPT_PREFIX='%{'$'\e[1A''%}'
 RPROMPT_SUFFIX='%{'$'\e[1B''%}'
 RPROMPT='$RPROMPT_PREFIX$FG[240]$(rvm_info)%{$reset_color%} \
-%{$FG[009]%}[$(get_load)] \
-%{$FG[015]%}%*%{$reset_color%}$RPROMPT_SUFFIX'
+%{$FG[005]%}[$(get_load)] \
+%{$FG[011]%}%*%{$reset_color%}$RPROMPT_SUFFIX'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on $FG[004]"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
