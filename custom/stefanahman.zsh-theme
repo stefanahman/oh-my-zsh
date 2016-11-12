@@ -33,20 +33,19 @@ function rvm_info {
 # the chpwd_functions line cause this to update only when the directory changes
 #chpwd_functions+=(rvm_info)
 
-PROMPT='
-$FG[166]%n%{$reset_color%} \
-at $FG[136]%m%{$reset_color%} \
-in $FG[064]%~%{$reset_color%}\
+PROMPT='$FG[001]%n%{$reset_color%} \
+at $FG[003]%m%{$reset_color%} \
+in $FG[002]%~%{$reset_color%}\
 $(hg_prompt_info)$(git_prompt_info)
 $(virtualenv_info)$(prompt_char) '
 
 RPROMPT_PREFIX='%{'$'\e[1A''%}'
 RPROMPT_SUFFIX='%{'$'\e[1B''%}'
-RPROMPT='$RPROMPT_PREFIX$FG[007]$(rvm_info)%{$reset_color%} \
-%{$fg_bold[red]%}[$(get_load)] \
-%{$fg_bold[green]%}%*%{$reset_color%}$RPROMPT_SUFFIX'
+RPROMPT='$RPROMPT_PREFIX$FG[240]$(rvm_info)%{$reset_color%} \
+%{$FG[009]%}[$(get_load)] \
+%{$FG[015]%}%*%{$reset_color%}$RPROMPT_SUFFIX'
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" on $FG[033]"
+ZSH_THEME_GIT_PROMPT_PREFIX=" on $FG[004]"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="?"
